@@ -27,7 +27,7 @@
             <textarea v-model="tracksInput" placeholder="Tracks (comma separated)"></textarea>
 
             <!-- Score -->
-            <textarea v-model="album.score" type="number" placeholder="Score"></textarea>
+            <input v-model="album.score" type="number" placeholder="Score">
 
             <button type="submit">Add Album</button>
         </form>
