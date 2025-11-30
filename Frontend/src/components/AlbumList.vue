@@ -59,7 +59,7 @@ export default {
           result = [...result].sort((a, b) => (b.year || 0) - (a.year || 0));
           break;
         case 'price':
-          result = [...result].sort((a, b) => (a.price || 0) - (b.price || 0));
+          result = [...result].sort((a, b) => (b.price || 0) - (a.price || 0));
           break;
         default:
           result = [...result].sort((a, b) =>
@@ -78,8 +78,6 @@ div {
   margin: 2rem auto;
   width: 90%;
   max-width: 1200px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #333;
 }
 
 ul {
@@ -132,15 +130,5 @@ p {
 p {
   font-weight: 600;
   color: #2980b9;
-}
-
-@media (max-width: 600px) {
-  ul {
-    grid-template-columns: 1fr;
-  }
-
-  li {
-    padding: 1rem 0.8rem;
-  }
 }
 </style>

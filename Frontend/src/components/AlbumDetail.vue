@@ -1,18 +1,18 @@
 <template>
   <div class="album-detail">
     <div class="card">
-      <button class="back-btn" @click="$router.back()">← Back</button>
-      
+      <button class="back-btn" @click="$router.push('/')">← Back</button>
+
       <!-- Edit and delete buttons -->
       <div class="actions">
         <button class="edit-btn" @click="goToEdit">Edit</button>
         <button class="delete-btn" @click="deleteAlbum">Delete</button>
       </div>
 
-      <div v-if="album && Object.keys(album).length" class="album-content">
+      <div v-if="album" class="album-content">
         <!-- Album Cover -->
         <div class="cover">
-          <img :src="album.coverUrl" alt="cover" />
+          <img :src="album.coverUrl" />
         </div>
 
         <!-- Album Info -->
@@ -38,10 +38,6 @@
       <div v-else-if="album && !album.tracks?.length">
         <p>No tracks available.</p>
       </div>
-
-      <div v-else class="loading">
-        Loading album...
-      </div>
     </div>
   </div>
 </template>
@@ -64,7 +60,7 @@ export default {
         const response = await getAlbumById(this.id);
         this.album = response.data;
       } catch (error) {
-        console.error("Failed to load album", error);
+        console.error(error);
       }
     },
     goToEdit() {
@@ -78,7 +74,7 @@ export default {
         alert("Album deleted successfully!");
         this.$router.push("/");
       } catch (error) {
-        console.error("Failed to delete album", error);
+        console.error(error);
         alert("Failed to delete album.");
       }
     },
@@ -92,7 +88,6 @@ export default {
   display: flex;
   justify-content: center;
   padding: 2rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #eee;
 }
 
@@ -207,20 +202,5 @@ export default {
   text-align: center;
   font-size: 1.2rem;
   color: #aaa;
-}
-
-@media (max-width: 768px) {
-  .album-content {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .cover img {
-    max-width: 100%;
-  }
-
-  .info {
-    text-align: center;
-  }
 }
 </style>

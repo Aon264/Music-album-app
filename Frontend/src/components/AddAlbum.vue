@@ -1,6 +1,6 @@
 <template>
     <div class="add-album-container">
-        <button class="back-btn" @click="goBack">⬅ Back</button>
+        <button class="back-btn" @click="$router.push('/')">⬅ Back</button>
         <h2>Add New Album</h2>
 
         <form @submit.prevent="addAlbum">
@@ -29,17 +29,16 @@
             <!-- Score -->
             <input v-model="album.score" type="number" placeholder="Score">
 
-            <button type="submit">Add Album</button>
+            <button type="submit">Confirm</button>
         </form>
 
         <p v-if="message" class="message">{{ message }}</p>
-
 
     </div>
 </template>
 
 <script>
-import axios from "axios";
+import { addAlbum } from "@/services/api";
 
 export default {
     name: "AddAlbum",
@@ -64,8 +63,8 @@ export default {
                     ...this.album,
                     tracks: this.tracksInput.split(",").map(t => t.trim()).filter(t => t),
                 };
-
-                await axios.post("https://music-album-app-sboa.onrender.com/albums", newAlbum);
+                
+                await addAlbum(newAlbum);
 
                 this.message = "Album added successfully!";
                 this.album = { title: "", artist: "", year: "", genre: "", price: "", cover: "" };
@@ -74,9 +73,6 @@ export default {
                 console.error(error);
                 this.message = "Failed to add album.";
             }
-        },
-        goBack() {
-            this.$router.back(); 
         },
     },
 };

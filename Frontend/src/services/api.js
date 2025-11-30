@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-const API_URL = 'https://music-album-app-sboa.onrender.com/albums';
+//const API_URL = 'https://music-album-app-sboa.onrender.com/albums';
 
-//const API_URL = 'http://localhost:3000/albums';
+const API_URL = 'http://localhost:3000/albums';
 
 export const getAlbums = () => axios.get(`${API_URL}`);
 

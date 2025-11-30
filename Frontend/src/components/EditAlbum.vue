@@ -13,7 +13,7 @@
       <input v-model="album.coverUrl" type="text" placeholder="Cover Image URL" />
       <textarea v-model="tracksInput" placeholder="Tracks (comma separated)"></textarea>
       <input v-model="album.score" type="number" placeholder="Score">
-      <button type="submit">Update Album</button>
+      <button type="submit">Confirm</button>
     </form>
 
     <p v-if="message" class="message">{{ message }}</p>
@@ -40,7 +40,7 @@ export default {
 
       this.tracksInput = this.album.tracks?.join(", ") || "";
     } catch (error) {
-      console.error("Failed to load album", error);
+      console.error(error);
       this.message = "Failed to load album data.";
     }
   },
@@ -58,7 +58,7 @@ export default {
         await updateAlbumById(this.id, updatedAlbum);
 
         this.message = "Album updated successfully!";
-        setTimeout(() => this.$router.push(`/album/${this.id}`), 1000);
+        this.$router.push(`/album/${this.id}`);
       } catch (error) {
         console.error(error);
         this.message = "Failed to update album.";

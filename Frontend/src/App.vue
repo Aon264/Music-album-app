@@ -13,7 +13,7 @@ export default {
 
 <style>
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Roboto';
   background-color: #4d4d4d;
   margin: 0;
 }
