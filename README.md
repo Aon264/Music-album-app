@@ -16,6 +16,6 @@ A music album showcase webapp using Vue + Express + firebase. Supports browsing,
 
 ## Live Demo
 
-Frontend (Netlify): https://sprightly-semifreddo-6d5568.netlify.app/
+Frontend (Netlify): https://music-album-app-aron.netlify.app/
 
 Backend (Render): https://music-album-app-sboa.onrender.com/albums
