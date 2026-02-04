@@ -48,24 +48,6 @@ export default {
   }
 }
 
-@keyframes pulse {
-  0%, 100% {
-    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-  }
-  50% {
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
-  }
-}
-
-@keyframes buttonGlow {
-  0%, 100% {
-    box-shadow: 0 0 5px rgba(30, 144, 255, 0.5);
-  }
-  50% {
-    box-shadow: 0 0 15px rgba(30, 144, 255, 0.9);
-  }
-}
-
 .navbar {
   position: sticky;
   top: 0;
@@ -102,10 +84,6 @@ export default {
   cursor: pointer;
 }
 
-.navbar input:focus {
-  animation: pulse 1s ease-in-out;
-}
-
 .navbar select:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
@@ -119,11 +97,9 @@ export default {
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  box-shadow: 0 0 5px rgba(30, 144, 255, 0.5);
 }
 
 .add-album-btn:hover {
   background: #1e90ff;
-  animation: buttonGlow 0.8s ease-in-out;
 }
 </style>
